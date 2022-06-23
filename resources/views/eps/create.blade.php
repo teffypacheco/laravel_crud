@@ -10,7 +10,7 @@
     <div class="col-lg-6">
         <h1>Agregar Paciente</h1>
         <form action="{{ url('eps/addPaciente') }}" method="post">
-            {{ csrf_field() }}
+            @csrf
             Documento <br>
             <input class="form-control" type="number" name="documento"><br>
             Tipo Documento <br>

@@ -38,7 +38,7 @@
                 <td> {{ $paciente->fechaNacimeinto }} </td>
                 <td> {{ $paciente->estadoCivil }} </td>
                 <td class="text-center">
-                    <a class="btn btn-warning" href="edit/">Editar</a>
+                    <a class="btn btn-warning" href="edit/{{$paciente->id}}">Editar</a>
                     <form action="{{ url('eps/deleteById', ['id' => $paciente->id]) }}" method="post">
                         <input class="btn btn-danger" type="submit" value="Delete" />
                         @method('delete')

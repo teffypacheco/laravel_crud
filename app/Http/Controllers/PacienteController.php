@@ -14,17 +14,20 @@ class PacienteController extends Controller
         dd('main');
     }
 
-    public function getAll() {
+    public function getAll()
+    {
         $pacientes = Paciente::all();
         return view('eps.index', compact('pacientes'));
     }
 
-    public function getById($idPaciente) {
+    public function getById($idPaciente)
+    {
         $pacientes = Paciente::find($idPaciente);
         echo $pacientes;
     }
 
-    public function addPaciente(Request $request) {
+    public function addPaciente(Request $request)
+    {
         Paciente::create([
             'documento' => $request->get('documento'),
             'tipoDocumento' => $request->get('tipoDocumento'),
@@ -40,8 +43,32 @@ class PacienteController extends Controller
         return redirect('eps/getAll');
     }
 
-    public function deleteById($idPaciente) {
+    public function deleteById($idPaciente)
+    {
         Paciente::destroy($idPaciente);
+        return redirect('eps/getAll');
+    }
+
+    public function edit($idPaciente)
+    {
+        $paciente = Paciente::find($idPaciente);
+        return view('eps.edit', compact('paciente'));
+    }
+
+    public function updatePaciente($idPaciente, Request $request)
+    {
+        $paciente = Paciente::find($idPaciente);
+        $paciente->documento = $request->get('documento');
+        $paciente->tipoDocumento = $request->get('tipoDocumento');
+        $paciente->nombres = $request->get('nombres');
+        $paciente->apellidos = $request->get('apellidos');
+        $paciente->direccion = $request->get('direccion');
+        $paciente->telefono = $request->get('telefono');
+        $paciente->genero = $request->get('genero');
+        $paciente->fechaNacimeinto = $request->get('fechaNacimeinto');
+        $paciente->estadoCivil = $request->get('estadoCivil');
+
+        $paciente->save();
         return redirect('eps/getAll');
     }
 

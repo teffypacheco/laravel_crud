@@ -24,9 +24,7 @@ Route::get('/eps/create', function () {
     return view('eps.create');
 });
 
-Route::get('/eps/edit', function () {
-    return view('eps.edit');
-});
+Route::get('/eps/edit/{idPaciente}', [PacienteController::class, 'edit']);
 
 Route::get('/eps/getAll', [PacienteController::class, 'getAll']);
 
