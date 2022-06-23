@@ -15,20 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('login');
 });
 
 Route::get('/eps', [PacienteController::class, 'getAll']);
 
-Route::get('/eps/create', function () {
-    return view('eps.create');
-});
-
 Route::get('/eps/edit/{idPaciente}', [PacienteController::class, 'edit']);
 
 Route::get('/eps/getAll', [PacienteController::class, 'getAll']);
-
-Route::get('/eps/getById/{idPaciente}', [PacienteController::class, 'getById']);
 
 Route::post('/eps/addPaciente', [PacienteController::class, 'addPaciente']);
 
@@ -36,3 +30,10 @@ Route::delete('/eps/deleteById/{idPaciente}', [PacienteController::class, 'delet
 
 Route::put('/eps/updatePaciente/{idPaciente}', [PacienteController::class, 'updatePaciente']);
 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/eps/create', function () {
+    return view('eps.create');
+});
