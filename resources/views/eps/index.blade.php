@@ -47,7 +47,7 @@
         @endforeach
     @else
         <tr>
-            <td colspan="2"> No record found </td>
+            <td colspan="2"> No Hay pacientes registrados </td>
         </tr>
     @endif
     </table>

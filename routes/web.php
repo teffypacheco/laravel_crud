@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PacienteController;
+use App\Http\Controllers\HabitacionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,3 +38,20 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/eps/create', function () {
     return view('eps.create');
 });
+
+Route::get('/habitacion/edit/{idPaciente}', [HabitacionController::class, 'edit']);
+
+Route::get('/habitacion/getAll', [HabitacionController::class, 'getAll']);
+
+Route::post('/habitacion/addHabitacion', [HabitacionController::class, 'addHabitacion']);
+
+Route::delete('/habitacion/deleteById/{idPaciente}', [HabitacionController::class, 'deleteById']);
+
+Route::put('/habitacion/updateHabitacion/{idPaciente}', [HabitacionController::class, 'updateHabitacion']);
+
+Route::get('/habitacion/create', function () {
+    return view('habitacion.create');
+});
+
+Route::get('/habitacion', [HabitacionController::class, 'getAll']);
+

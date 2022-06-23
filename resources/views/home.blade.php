@@ -19,7 +19,11 @@
                         <div class="container">
                             <a class="btn btn-success btn-lg" href="eps/getAll">Listar Pacientes</a>
                         </div>
-                </div>
+
+                        <br>
+                        <div class="container">
+                            <a class="btn btn-success btn-lg" href="habitacion/getAll">Listar Habitaciones</a>
+                        </div>                </div>
             </div>
         </div>
     </div>
